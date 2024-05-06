@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://5mjn0i7t7go3"]
+
+[ext_resource type="PackedScene" uid="uid://dgvrbycno5pdg" path="res://Assets/3D/tardisInside/studio.blend" id="1_awucs"]
+
+[sub_resource type="Environment" id="Environment_it0fn"]
+background_mode = 1
+glow_enabled = true
+
+[node name="tardisInside" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_it0fn")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.31238, 0)
+light_energy = 16.0
+omni_range = 24.4593
+
+[node name="studio" parent="." instance=ExtResource("1_awucs")]
