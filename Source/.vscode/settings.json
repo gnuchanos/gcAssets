@@ -1,8 +1,0 @@
-{
-    "files.associations": {
-        "chrono": "c",
-        "main.h": "c",
-        "raymath.h": "c",
-        "raylib.h": "c"
-    }
-}
