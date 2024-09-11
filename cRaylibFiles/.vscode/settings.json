@@ -57,6 +57,10 @@
   "C_Cpp_Runner.useLinkTimeOptimization": false,
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "files.associations": {
-    "fps.h": "c"
+    "fps.h": "c",
+    "format": "c",
+    "raylib.h": "c",
+    "player2d.h": "c",
+    "main.h": "c"
   }
 }

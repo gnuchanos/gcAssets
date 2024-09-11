@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scene/Scene_NewGameMyRoom/door0.gltf" type="PackedScene" id=1]
+
+[node name="HomeDoor_bigBrother" type="Spatial"]
+
+[node name="door0" parent="." instance=ExtResource( 1 )]

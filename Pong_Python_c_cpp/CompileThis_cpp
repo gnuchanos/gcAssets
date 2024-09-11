@@ -1,2 +1,0 @@
-echo "g++ -lraylib -lm main.cpp -o debug1 && ./debug1"
-g++ -lraylib -lm main.cpp -o debug1 && ./debug1

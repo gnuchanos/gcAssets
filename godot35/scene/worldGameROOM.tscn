@@ -1,0 +1,60 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://scene/scene_gameroom/Magnavox_Odyssey .gltf" type="PackedScene" id=1]
+[ext_resource path="res://testLevel.tres" type="Environment" id=2]
+[ext_resource path="res://move/NPC/ball.gltf" type="PackedScene" id=3]
+[ext_resource path="res://scene/scene_gameroom/Coleco Telstar .gltf" type="PackedScene" id=4]
+[ext_resource path="res://move/FPS.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scene/scene_gameroom/gameRoom.tscn" type="PackedScene" id=6]
+[ext_resource path="res://move/NPC/ball.gd" type="Script" id=7]
+[ext_resource path="res://scene/scene_gameroom/Atari 2600.gltf" type="PackedScene" id=8]
+[ext_resource path="res://scene/scene_gameroom/NES.gltf" type="PackedScene" id=9]
+[ext_resource path="res://scene/scene_gameroom/gameboy.gltf" type="PackedScene" id=10]
+[ext_resource path="res://scene/scene_gameroom/Magnavox Odyssey².gltf" type="PackedScene" id=11]
+[ext_resource path="res://scene/scene_gameroom/Fairchild Channel F.gltf" type="PackedScene" id=12]
+[ext_resource path="res://scene/scene_gameroom/worldGameROOM.gd" type="Script" id=13]
+
+[node name="worldGameROOM" type="Spatial"]
+script = ExtResource( 13 )
+
+[node name="gameRoom" parent="." instance=ExtResource( 6 )]
+
+[node name="consoles" type="Spatial" parent="gameRoom"]
+
+[node name="gameboy" parent="gameRoom/consoles" instance=ExtResource( 10 )]
+transform = Transform( -0.0227755, 0.109902, -0.0722377, 0.0108451, 0.0746326, 0.110127, 0.131069, 0.012922, -0.0216647, 8.024, 1.703, 0.753 )
+
+[node name="Coleco Telstar " parent="gameRoom/consoles" instance=ExtResource( 4 )]
+transform = Transform( 0.494301, 0, 0, 0, 0.494301, 0, 0, 0, 0.494301, 6.82689, 1.795, 7.30682 )
+
+[node name="Magnavox Odyssey²" parent="gameRoom/consoles" instance=ExtResource( 11 )]
+transform = Transform( -3.30527e-08, 0, -0.756159, 0, 0.756159, 0, 0.756159, 0, -3.30527e-08, 6.64156, 1.799, 8.41356 )
+
+[node name="Fairchild Channel F" parent="gameRoom/consoles" instance=ExtResource( 12 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.61392, 1.79548, 9.33725 )
+
+[node name="Magnavox_Odyssey " parent="gameRoom/consoles" instance=ExtResource( 1 )]
+transform = Transform( -0.394792, 0, -3.45138e-08, 0, 0.394792, 0, 3.45138e-08, 0, -0.394792, 6.56444, 1.81193, 10.2482 )
+
+[node name="Atari 2600" parent="gameRoom/consoles" instance=ExtResource( 8 )]
+transform = Transform( -4.729e-08, 0, -1.08187, 0, 1.08187, 0, 1.08187, 0, -4.729e-08, 6.68596, 0.785605, 6.93747 )
+
+[node name="NES" parent="gameRoom/consoles" instance=ExtResource( 9 )]
+transform = Transform( -0.222655, 0, -1.94651e-08, 0, 0.222655, 0, 1.94651e-08, 0, -0.222655, 6.60285, 0.799616, 8.88118 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 2 )
+
+[node name="FPS" parent="." instance=ExtResource( 5 )]
+transform = Transform( -6.25903e-08, 0, -1.4319, 0, 1.4319, 0, 1.4319, 0, -6.25903e-08, 6.90969, 1.14405, -1.90729 )
+
+[node name="0" type="Camera" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.25563, 2.39483, 0 )
+current = true
+
+[node name="1" type="Camera" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.28839, 2.29407, 9.75028 )
+
+[node name="ball" parent="." instance=ExtResource( 3 )]
+transform = Transform( -1.19185e-08, 0, -0.272663, 0, 0.272663, 0, 0.272663, 0, -1.19185e-08, 8.60572, 2.01277, -1.99858 )
+script = ExtResource( 7 )

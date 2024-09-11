@@ -1,0 +1,12 @@
+#!/bin/bash
+
+MianFile=$0
+RunFile=$1
+
+if [ "$RunFile" == "main.c" ]; then
+    make CFile_LinuxBuild && cd Build/ && ./debug_Linux && cd ..
+elif [ "$RunFile" == "main.py" ]; then
+    cd Build/ && python main.py && cd ..   
+else
+    echo only main.c or main.py
+fi

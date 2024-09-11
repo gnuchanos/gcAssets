@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scene/Scene_NewGameMyRoom/door0_al.gltf" type="PackedScene" id=1]
+
+[node name="door_bg" type="Spatial"]
+
+[node name="door0_al" parent="." instance=ExtResource( 1 )]

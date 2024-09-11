@@ -569,7 +569,8 @@ shape = SubResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
 
 [node name="new_vegas_securitron" parent="." instance=ExtResource( 2 )]
-transform = Transform( -5.64358e-08, 0, 1.2911, 0, 1.2911, 0, -1.2911, 0, -5.64358e-08, 0, -0.950673, 0 )
+transform = Transform( -5.64358e-08, 0, 1.2911, 0, 1.2911, 0, -1.2911, 0, -5.64358e-08, 0, -0.981842, 0 )
+visible = false
 script = ExtResource( 5 )
 
 [node name="vegas" type="AnimationPlayer" parent="new_vegas_securitron"]

@@ -1,2 +1,0 @@
-echo "gcc -lraylib -lm main.c -o debug && ./debug"
-gcc -lraylib -lm main.c -o debug && ./debug
