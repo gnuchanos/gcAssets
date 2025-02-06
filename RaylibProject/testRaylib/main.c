@@ -1,5 +1,4 @@
 #include "main.h"
-#include "ui.h"
 #include <raylib.h>
 
 // don't touch this or light not working in main.h must in here
@@ -12,10 +11,6 @@
     #define GLSL_VERSION            100
 #endif
 // don't touch this or light not working in main.h must in here
-
-
-
-
 
 
 int main(int argc, char const *argv[]) {
@@ -48,16 +43,29 @@ int main(int argc, char const *argv[]) {
 
     // Create lights
     Light lights[MAX_LIGHTS] = { 0 };
-    lights[0] = CreateLight(LIGHT_POINT, (Vector3){ 0.0, 2.5, 0.0 }, Vector3Zero(), WHITE, shader);
+    lights[0] = CreateLight(LIGHT_POINT, (Vector3){ 3.0,  3.0, 0.0 }, Vector3Zero(), WHITE, shader);
+	lights[1] = CreateLight(LIGHT_POINT, (Vector3){ -3.0, 3.0, 0.0 }, Vector3Zero(), WHITE, shader);
+	lights[2] = CreateLight(LIGHT_POINT, (Vector3){ 0.0,  3.0, 3.0 }, Vector3Zero(), WHITE, shader);
+	lights[3] = CreateLight(LIGHT_POINT, (Vector3){ 0.0,  3.0, -3.0 }, Vector3Zero(), WHITE, shader);
 
 
 	// models
-	Model TestModel = LoadModel("./3D/gameRoom.glb");
+	JustModel TestModel = CreateJustModel_Object("./3D/Cardis.m3d", (Vector3){0.0f, 0.0f, 0.0f}, (Vector3){10.0f, 10.0f, 10.0f});
+
+	Texture TestModelTextures[1] = {
+		LoadTexture("./3D/fullColorAtlas.png"),    };
+
+	AddTextureToIndex(&TestModel, 1, TestModelTextures[0]); // Default Color Atlas
+	AddTextureToIndex(&TestModel, 2, TestModelTextures[0]); // Screen
+	AddTextureToIndex(&TestModel, 3, TestModelTextures[0]); // center
+	AddTextureToIndex(&TestModel, 4, TestModelTextures[0]); // not finish screen
+	AddTextureToIndex(&TestModel, 5, TestModelTextures[0]); // tesseract
+
 	// TestModel.materials[2].maps[MATERIAL_MAP_ALBEDO].color = RED;
 
 	// add light shader in model materials
-	for (int i = 0; i < TestModel.materialCount; i++) {
-		TestModel.materials[i].shader = shader;
+	for (int i = 0; i < TestModel.ThisModel.materialCount; i++) {
+	 	TestModel.ThisModel.materials[i].shader = shader;
 	}
 
 
@@ -101,7 +109,15 @@ int main(int argc, char const *argv[]) {
 						break;
 					case GameScene:
 						BeginShaderMode(shader);
-							DrawModel(TestModel, (Vector3){0.0f, 0.0f, 0.0f}, 1.0f, WHITE);
+							DrawModelEx(
+								TestModel.ThisModel,
+								TestModel.ThisModelPosition,
+								(Vector3){0.0f, 0.0f, 0.0f},
+								0,
+								TestModel.ThisModelBody,
+								WHITE
+							);
+							DrawGrid(10, 1.0f);
 
 						EndShaderMode();
 

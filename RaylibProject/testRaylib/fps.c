@@ -1,8 +1,8 @@
-#include "fps.h"
+#include "main.h"
 
 _CameraGO GOCAM() {
     _CameraGO GO;
-		GO.GO.position = (Vector3){ 0.2f, 2.0f, 0.2f };
+		GO.GO.position = (Vector3){ 3.0f, 2.0f, 0.0f };
 		GO.GO.target   = (Vector3){ 0.0f, 2.0f, 0.0f };
 		GO.GO.up       = (Vector3){ 0.0f, 1.0f, 0.0f };
 		GO.GO.fovy = 90.0f;                                // Camera field-of-view Y

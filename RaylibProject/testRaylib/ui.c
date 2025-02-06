@@ -1,16 +1,18 @@
-#include "ui.h"
 #include "main.h"
+#include <raylib.h>
 
 // Progress Bar ================================================================================================================================
 ProgressBar CreateProgressBar ( float X, float Y, float SizeX, float SizeY, Color FirstBarColor, Color SecondBarColor, int Time ) {
-	ProgressBar ThisProgressBar;
-		ThisProgressBar.FirstBar       = (Rectangle){ X-SizeX/2, Y, SizeX, SizeY };
-		ThisProgressBar.SecondBar      = (Rectangle){ X-SizeX/2+5, Y+5, SizeX-10, SizeY-10 };
-		ThisProgressBar.FirstBarColor  = Purple5;
-		ThisProgressBar.SecondBarColor = Purple8;
-		ThisProgressBar.Time  = Time;
-		ThisProgressBar.wait  = GetFrameTime();
-		ThisProgressBar.divideTimeAndWidth = ThisProgressBar.SecondBar.width/ThisProgressBar.Time;
+	ProgressBar ThisProgressBar = {
+		.FirstBar = (Rectangle){ X-SizeX/2, Y, SizeX, SizeY },
+		.SecondBar = (Rectangle){ X-SizeX/2+5, Y+5, SizeX-10, SizeY-10 },
+		.FirstBarColor = FirstBarColor,
+		.SecondBarColor = SecondBarColor,
+		.Time = Time,
+		.wait = GetFrameTime(),
+		.divideTimeAndWidth = ThisProgressBar.SecondBar.width/ThisProgressBar.Time
+	};
+
 	return ThisProgressBar;
 }
 
@@ -33,8 +35,6 @@ bool UpdateProgressBar(ProgressBar *ThisProgressBar) {
 	} 
 	return false;
 }
-
-
 
 // Button =====================================================================================================================================
 Button CreateButton(char *Text, char *TextFont, int TextSize, float X, float Y, Color NormalColor, Color HoverColor, Color PressColor) { 
@@ -82,3 +82,12 @@ void UpdateButton(Button *ThisButton, Vector2 MouseCursor) {
 	}
 	
 }
+
+
+
+
+
+
+
+
+
