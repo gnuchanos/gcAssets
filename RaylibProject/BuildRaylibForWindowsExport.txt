@@ -1,0 +1,14 @@
+mkdir ~/tmp
+git clone https://github.com/raysan5/raylib.git
+cd raylib/src
+make clean
+make OS=Windows_NT CC=x86_64-w64-mingw32-gcc AR=x86_64-w64-mingw32-ar
+
+
+# note this is in makefile
+x86_64-w64-mingw32-gcc -o debug_Windows.exe main.c \
+        -I/home/archkubi/tmp/raylib/src \
+        -L/home/archkubi/tmp/raylib/src -lraylib \
+        -lopengl32 -lgdi32 -lwinmm \
+        -static -s -Os -std=c99 \
+        -Wl,-subsystem,windows

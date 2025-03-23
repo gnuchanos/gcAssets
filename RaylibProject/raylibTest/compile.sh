@@ -1,0 +1,1 @@
+gcc main.c ui.c model3D.c fps.c -o dbg -Wall -O3 -std=gnu99 -lraylib -lGL -lGLU -lGLEW -lm -lpthread && ./dbg
