@@ -123,6 +123,8 @@ typedef struct {
 	Model    ThisModel;
 	Vector3  ThisModelPosition;
 	Vector3  ThisModelBody;
+	Vector3  ThisModelRotation;
+	Vector3  ThisModelScale;
 } JustModel;
 
 JustModel CreateJustModel_Object(char *ModelPath, Vector3 Position, Vector3 Scale);

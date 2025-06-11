@@ -1,5 +1,4 @@
 #include "main.h"
-#include <raylib.h>
 
 
 
@@ -80,15 +79,9 @@ int main() {
 						break;
 					case GameScene:
 						DrawGrid(10, 1.0f);
-						DrawModelEx(
-							testAnimModel.ThisModel,
-							testAnimModel.ThisModelPosition,
-							testAnimModel.ThisModelRotation,
-							0,
-							testAnimModel.ThisModelScale,
-							WHITE
-						);
-
+						//DrawModelEx( testAnimModel.ThisModel, testAnimModel.ThisModelPosition, testAnimModel.ThisModelRotation, 0, testAnimModel.ThisModelScale, WHITE );
+						
+						DrawModelAndAnimation(&testAnimModel);
 
 						break;
 					case EndScene:

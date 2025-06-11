@@ -16,14 +16,26 @@ void AddTextureToIndex(JustModel *ThisModel, int ThisIndex, Texture ThisTexture)
     } else { printf("Index out of range! \n"); }
 }
 
+void DrawJustModel(JustModel *ThisModel) {
+	DrawModelEx(
+		ThisModel->ThisModel,
+		ThisModel->ThisModelPosition,
+		ThisModel->ThisModelRotation,
+		0,
+		ThisModel->ThisModelScale,
+		WHITE		
+	);
+}
+
 // Animation Model
 ModelAndAnimation CreateAnimationModel(char *ModelPath, Vector3 Position, Vector3 Scale, Vector3 Rotation, int AnimationIndex) {
     ModelAndAnimation ThisAnimationModel;
     if (ModelPath != NULL) {
-        ThisAnimationModel.ModelPath         = ModelPath;
+        ThisAnimationModel.ModelPath        = ModelPath;
         ThisAnimationModel.ThisModel         = LoadModel(ModelPath);
         ThisAnimationModel.ThisModelPosition = Position;
         ThisAnimationModel.ThisModelScale    = Scale;
+		ThisAnimationModel.ThisModelRotation = Rotation;
     
         // Load Animations
         ThisAnimationModel.ThisModelAnimIndex         = AnimationIndex;
@@ -48,7 +60,7 @@ void PlayAnimation(ModelAndAnimation *ThisAnimationModel){
     } else { printf("Animation Array is NULL"); }
 }
 
-void DrawAnimModel(ModelAndAnimation *ThisAnimationModel) {
+void DrawModelAndAnimation(ModelAndAnimation *ThisAnimationModel) {
     DrawModelEx(
         ThisAnimationModel->ThisModel,
         ThisAnimationModel->ThisModelPosition,
